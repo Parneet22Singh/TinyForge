@@ -1,14 +1,72 @@
 # TinyForge
 
-TinyForge turns permitted public web documentation into small, specialized models and
-optimizes them for constrained hardware.
+## What is TinyForge?
+
+TinyForge is a local-first ML systems project for turning permitted public web documentation
+into small, specialized models that can run within a user's hardware constraints.
+
+The central idea is simple:
+
+> Give TinyForge useful domain data and a hardware limit, then measure how small a useful
+> specialized model can become.
+
+Large general-purpose models are powerful, but they are often expensive to download, fine-tune,
+store, and run. A focused documentation corpus may contain enough signal to build a smaller
+model for a narrow task—especially when the experiment is designed around the available VRAM,
+RAM, model size, latency, and training budget.
+
+TinyForge is the experimental instrument for studying that trade-off. It connects:
+
+```text
+permitted web source
+        ↓
+harvest and content extraction
+        ↓
+clean, deduplicate, and score the dataset
+        ↓
+select a model that fits the hardware
+        ↓
+pilot and fine-tune with LoRA/QLoRA
+        ↓
+evaluate quality and resource use
+        ↓
+quantize, benchmark, and compare
+        ↓
+small specialized local model
+```
+
+The project is built around a practical research question:
+
+> How much useful specialization can we squeeze out of a model when data, compute, memory,
+> and model size are all constrained?
+
+TinyForge emphasizes:
+
+- Local execution instead of a hosted service
+- Reproducible experiments instead of unsupported claims
+- Dataset quality instead of blindly scraping everything
+- Parameter-efficient fine-tuning instead of training from scratch
+- Hardware-aware model and configuration selection
+- Measured trade-offs between quality, size, memory, latency, and training cost
+
+TinyForge is not:
+
+- A generic chatbot
+- A generic web scraper
+- A cloud training platform
+- A dashboard or SaaS product
+- An autonomous browsing agent
+- A general AutoML framework
+- A CAPTCHA solver or anti-bot bypass tool
+
+It is a CLI-first experimental pipeline for exploring efficient, specialized models on real
+local hardware.
+
+## Pipeline overview
 
 ```text
 public URL -> crawl -> extract -> clean -> dataset -> select -> train -> shrink -> benchmark
 ```
-
-It is a local-first, CLI-first experimental ML systems tool—not a chatbot, cloud service,
-generic scraper, autonomous browsing agent, or anti-bot bypass tool.
 
 ## Requirements
 
