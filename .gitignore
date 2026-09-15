@@ -1,0 +1,50 @@
+# Python bytecode and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Packaging outputs
+build/
+dist/
+*.egg-info/
+
+# Local environments
+.venv/
+venv/
+env/
+ENV/
+
+# TinyForge generated datasets and experiment runs
+dataset/
+datasets/
+runs/
+compressed/
+artifacts/
+checkpoints/
+.acceptance-*/
+.real-*/
+
+# Local model files and downloaded checkpoints
+.local-gpt2/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+*.gguf
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

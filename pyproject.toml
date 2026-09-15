@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tinyforge"
+version = "0.1.0"
+description = "A local-first web-to-dataset pipeline for constrained ML experiments."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "TinyForge contributors" }]
+dependencies = ["psutil>=5.9"]
+
+[project.optional-dependencies]
+ml = [
+    "torch>=2.2",
+    "transformers>=4.40",
+    "datasets>=2.18",
+    "peft>=0.10",
+    "accelerate>=0.28",
+    "bitsandbytes>=0.43",
+]
+gpu = [
+    "torch>=2.2",
+]
+test = ["pytest>=8", "pytest-cov>=5"]
+
+[project.scripts]
+tinyforge = "tinyforge.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
